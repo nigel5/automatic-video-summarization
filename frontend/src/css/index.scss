@@ -9,6 +9,7 @@
 body,
 #root {
     background-color: $white;
+    overflow: hidden;
 }
 .container {
     margin-right: auto;
@@ -28,6 +29,7 @@ body,
         background-color: $white;
         margin: 10px;
         border-radius: 5px;
+
         border: 1px solid $secondary;
         padding: 10px;
         cursor: grab;
@@ -74,6 +76,7 @@ body,
     &-timestamp {
         flex: 1;
         display: flex;
+        border: 6px solid $secondary;
         flex-direction: column;
         &__list {
             flex: 1;
@@ -107,11 +110,11 @@ body,
     }
     &-header {
         display: flex;
-        margin-top: 15px;
         justify-content: space-between;
         width: 100%;
         align-items: center;
         padding: 15px 0;
+        padding-top: 5px;
     }
     &-title {
         font-size: 40px;

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Player, ControlBar } from 'video-react';
 import ReactDOMServer from 'react-dom/server';
-import VIDEO from '../media/vid.mp4';
 import bk from '../api/backendapi';
+import logo from '../media/logo.png';
 let MODE_NONE = 0;
 let MODE_SEARCH = 1;
 let MODE_ITEM = 2;
@@ -13,7 +13,8 @@ export default class VideoSummary extends Component {
             searchText: '',
             searchStart: 0,
             searchEnd: 1,
-            dur: 300,
+            dur: 80,
+            searchTextList: [],
             timestampList: [
                 {
                     label: 'snake',
@@ -80,6 +81,20 @@ export default class VideoSummary extends Component {
                             <input
                                 className="prompt"
                                 type="text"
+                                onKeyUp={(e) => {
+                                    if (e.keyCode === 13) {
+                                        bk.get(`/search-text?text=${this.state.searchText}`).then(
+                                            ({ data }) => {
+                                                this.setState({
+                                                    searchTextList: data,
+                                                    mode: MODE_SEARCH,
+                                                    searchText: '',
+                                                });
+                                            },
+                                        );
+                                    }
+                                }}
+                                value={this.state.searchText}
                                 onChange={({ target: { value } }) =>
                                     this.setState({ searchText: value })
                                 }
@@ -90,7 +105,7 @@ export default class VideoSummary extends Component {
                         <div className="results"></div>
                     </div>
                     <div className="v-search__list">
-                        {this.state.timestampList.map(
+                        {this.state.searchTextList.map(
                             ({ label, start_time, end_time, confidence }) => {
                                 return (
                                     <div
@@ -232,7 +247,8 @@ export default class VideoSummary extends Component {
                     playsInline
                     autoPlay={true}
                     poster="/assets/poster.png"
-                    src={VIDEO}
+                    // src={VIDEO}
+                    src="https://storage.googleapis.com/test-concrete-rig-265506/virat/final_60032c127eda940069ff76ba_513160_Trim.mp4"
                 >
                     <ControlBar autoHide={false} default={false} />
                 </Player>
@@ -242,6 +258,20 @@ export default class VideoSummary extends Component {
     render() {
         return (
             <div className="container v-con">
+                <div className="hm-header">
+                    <div className="hm-title">
+                        <img src={logo} alt="" />
+                        VidSpace
+                    </div>
+                    <div className="hm-contact">
+                        <a className="hm-contact__devpost" href="/">
+                            Devpost
+                        </a>
+                        <a className="hm-contact__github" href="/">
+                            GitHub
+                        </a>
+                    </div>
+                </div>
                 {this.renderVideoPlayer()}
                 {this.renderSearch()}
             </div>

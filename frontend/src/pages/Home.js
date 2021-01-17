@@ -1,14 +1,13 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import logo from "../media/logo.png";
-import UploadButton from "./UploadButton";
-import personScreen from "../media/vid.png";
+import React, { Component } from 'react';
+import logo from '../media/logo.png';
+import UploadButton from './UploadButton';
+import personScreen from '../media/vid.png';
 export default class Home extends Component {
     renderHeader() {
         return (
             <div className="hm-header">
                 <div className="hm-title">
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="idk" />
                     VidSpace
                 </div>
                 <div className="hm-contact">
@@ -34,10 +33,10 @@ export default class Home extends Component {
                     <div className="gs">
                         <UploadButton
                             handleFile={(x) => {
-                                this.props.history.push(`/v/${x}`)
+                                this.props.history.push(`/v/${x}`);
                             }}
                         />
-                        <img src={personScreen} alt="" className="gs-img" />
+                        <img src={personScreen} alt="x" className="gs-img" />
                     </div>
                 </div>
             </div>
