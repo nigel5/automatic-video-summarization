@@ -28,6 +28,7 @@ export default class VideoSummary extends Component {
         );
     }
     render() {
+        let vidsrc= this.props.match.params.vid;
         return (
             <div className="container v-con">
                 <div className="v-video">
@@ -35,7 +36,7 @@ export default class VideoSummary extends Component {
                         width={500}
                         playsInline
                         poster="/assets/poster.png"
-                        src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4"
+                        src={'https://storage.googleapis.com/test-concrete-rig-265506/virat/09152008flight2tape1_1.mpg'}
                     />
                 </div>
                 {this.renderSearch()}
