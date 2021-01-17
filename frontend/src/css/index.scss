@@ -1,6 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Sarala:wght@300;400;500;600;700;800;900&display=swap");
-@import "var";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sarala:wght@300;400;500;600;700;800;900&display=swap');
+@import 'var';
 * {
     margin: 0;
     padding: 0;
@@ -37,6 +37,16 @@ body,
         align-items: center;
         border: 1px solid black;
     }
+    &-box {
+        display: flex;
+        flex: 1;
+        & > div {
+            padding: 15px;
+        }
+    }
+    &-timestamp {
+        flex: 1;
+    }
     &-search {
         flex: 1;
         display: flex;
@@ -72,7 +82,7 @@ body,
     }
     &-title {
         font-size: 40px;
-        font-family: "Poppins";
+        font-family: 'Poppins';
         font-weight: 500;
         line-height: 40px;
         display: flex;
@@ -109,7 +119,7 @@ body,
         align-items: center;
         &__title {
             color: $secondary;
-            font-family: "Sarala";
+            font-family: 'Sarala';
             user-select: none;
 
             font-size: 80px;
