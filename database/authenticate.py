@@ -2,8 +2,11 @@ from sqlalchemy import *
 import json
 from flask import Flask
 from flask import request, jsonify
+import os
 
-engine = create_engine('')
+keyT=os.path.join(os.getcwd(),'cc-ca.crt')
+print(f"cockroachdb://moustafa:MoustafaHTN2021@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/red-coyote-284.defaultdb?sslmode=verify-full&sslrootcert={keyT}")
+engine = create_engine(f"cockroachdb://moustafa:MoustafaHTN2021@free-tier.gcp-us-central1.cockroachlabs.cloud:26257/red-coyote-284.defaultdb?sslmode=verify-full&sslrootcert={keyT}")
 connection = engine.connect()
 print(engine.table_names())
 metadata = MetaData()
