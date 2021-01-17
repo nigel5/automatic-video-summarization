@@ -24,6 +24,31 @@ body,
     }
 }
 .v {
+    &-titi {
+        background-color: $white;
+        margin: 10px;
+        border-radius: 5px;
+        border: 1px solid $secondary;
+        padding: 10px;
+        cursor: grab;
+        &__row {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+    &-tit {
+        background-color: $secondary;
+        margin: 10px;
+        color: $white;
+        border-radius: 5px;
+        border: 1px solid $secondary;
+        padding: 10px;
+        cursor: grab;
+        &__row {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
     &-con {
         display: flex;
         flex-direction: column;
@@ -33,9 +58,11 @@ body,
     &-video {
         display: flex;
         flex-direction: column;
+        max-height: 500px;
         justify-content: center;
         align-items: center;
         border: 1px solid black;
+        background-color: #000;
     }
     &-box {
         display: flex;
@@ -46,8 +73,14 @@ body,
     }
     &-timestamp {
         flex: 1;
+        display: flex;
+        flex-direction: column;
+        &__list {
+            flex: 1;
+        }
     }
     &-search {
+        background-color: $secondary;
         flex: 1;
         display: flex;
         flex-direction: column;
